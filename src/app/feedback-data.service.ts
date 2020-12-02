@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 
 export class FeedbackDataService {
-  api_url = 'http://localhost:3000/api/feedback';
+  api_url = 'http://localhost:3000/api/feedback/';
   feedbackList = [];
   feedbackObs = new Subject();
 
@@ -45,7 +45,7 @@ export class FeedbackDataService {
   }
 
   forceReload() {
-    this.feedbackList = this.getList();
+    this.getList();
     this.feedbackObs.next([...this.feedbackList]);
   }
 
